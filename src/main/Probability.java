@@ -1,10 +1,10 @@
 //Represent the occurance of an event
 
 class Probability {
-    private double occurance;
+    final private double value;
 
-    Probability(double occurance) {
-        this.occurance = occurance;
+    Probability(double value) {
+        this.value = value;
     }
 
     @Override
@@ -15,11 +15,11 @@ class Probability {
             return false;
         } else {
             Probability probabilityToCompare = (Probability) obj;
-            return this.occurance == probabilityToCompare.occurance;
+            return this.value == probabilityToCompare.value;
         }
     }
 
-    double combinedProbability(Probability probability2) {
-        return this.occurance * probability2.occurance;
+    Probability and(Probability other) {
+        return new Probability(this.value * other.value);
     }
 }
