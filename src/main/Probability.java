@@ -22,4 +22,12 @@ class Probability {
     Probability and(Probability other) {
         return new Probability(this.value * other.value);
     }
+
+    Probability or(Probability other) {
+        return new Probability((this.value + other.value) - (and(other)).value);
+    }
+
+    Probability not() {
+        return new Probability(1 - this.value);
+    }
 }

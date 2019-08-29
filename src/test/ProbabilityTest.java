@@ -49,4 +49,31 @@ class ProbabilityTest {
         Probability probability2 = new Probability(0.5);
         assertNotEquals(new Probability(0.10), probability1.and(probability2));
     }
+
+    @Test
+    void expect0_28ForOrOfProbability0_3And0_2() {
+        Probability probability1 = new Probability(0.1);
+        Probability probability2 = new Probability(0.2);
+        assertNotEquals(new Probability(0.5), probability1.or(probability2));
+    }
+
+    @Test
+    void expect0_44ForOrOfProbability0_3And0_2() {
+        Probability probability1 = new Probability(0.3);
+        Probability probability2 = new Probability(0.2);
+        assertEquals(new Probability(0.44), probability1.or(probability2));
+    }
+
+    @Test
+    void expect0_2ForNotOfProbability0_8() {
+        Probability probability = new Probability(0.2);
+        assertNotEquals(new Probability(0.5), probability.not());
+    }
+
+    @Test
+    void expect0_45ForNotOfProbabilityOfo_45() {
+        Probability probability = new Probability(0.45);
+        assertEquals(new Probability(0.55), probability.not());
+    }
+
 }
