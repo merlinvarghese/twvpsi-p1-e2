@@ -18,4 +18,8 @@ class Probability {
             return this.occurance == probabilityToCompare.occurance;
         }
     }
+
+    double combinedProbability(Probability probability2) {
+        return this.occurance * probability2.occurance;
+    }
 }

@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("ALL")
 class ProbabilityTest {
@@ -36,5 +35,19 @@ class ProbabilityTest {
         Probability probability1 = new Probability(0.2);
         Probability probability2 = new Probability(0.6);
         assertFalse(probability1.equals(probability2));
+    }
+
+    @Test
+    void expect0_12ForCombinedProbabilityOf0_2And0_6() {
+        Probability probability1 = new Probability(0.2);
+        Probability probability2 = new Probability(0.6);
+        assertEquals(0.12, probability1.combinedProbability(probability2));
+    }
+
+    @Test
+    void expect0_15ForCombinedProbabilityOf0_3And0_5() {
+        Probability probability1 = new Probability(0.3);
+        Probability probability2 = new Probability(0.5);
+        assertNotEquals(0.10, probability1.combinedProbability(probability2));
     }
 }
